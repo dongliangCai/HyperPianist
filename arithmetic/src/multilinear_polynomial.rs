@@ -85,7 +85,9 @@ pub fn random_mle_list<F: PrimeField, R: RngCore>(
         let mut product = F::one();
 
         for e in multiplicands.iter_mut() {
-            let val = F::rand(rng);
+            //TODO: set val to 1 for debug
+            let val = F::one();
+            // let val = F::rand(rng);
             e.push(val);
             product *= val;
         }

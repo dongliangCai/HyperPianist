@@ -9,14 +9,14 @@ extern crate criterion;
 
 use arithmetic::fix_variables;
 use ark_bls12_381::Fr;
-use ark_ff::Field;
+use ark_ff::{Field, PrimeField};
 use ark_poly::{DenseMultilinearExtension, MultilinearExtension};
 use ark_std::{ops::Range, test_rng};
 use criterion::{black_box, BenchmarkId, Criterion};
 
 const NUM_VARIABLES_RANGE: Range<usize> = 10..21;
 
-fn evaluation_op_bench<F: Field>(c: &mut Criterion) {
+fn evaluation_op_bench<F: PrimeField>(c: &mut Criterion) {
     let mut rng = test_rng();
     let mut group = c.benchmark_group("Evaluate");
     for nv in NUM_VARIABLES_RANGE {

@@ -65,7 +65,7 @@ pub struct VirtualPolynomial<F: PrimeField> {
     /// to.
     pub flattened_ml_extensions: Vec<Arc<DenseMultilinearExtension<F>>>,
     /// Pointers to the above poly extensions
-    raw_pointers_lookup_table: HashMap<*const DenseMultilinearExtension<F>, usize>,
+    pub raw_pointers_lookup_table: HashMap<*const DenseMultilinearExtension<F>, usize>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Eq, CanonicalSerialize)]

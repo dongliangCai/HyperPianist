@@ -70,6 +70,8 @@ impl<F: PrimeField> SumCheckVerifier<F> for IOPVerifierState<F> {
         // such checks to `check_and_generate_subclaim` after the last round.
 
         let challenge = transcript.get_and_append_challenge(b"Internal round")?;
+        //TODO:
+        // let challenge = F::ONE + F::ONE;
         self.challenges.push(challenge);
         self.polynomials_received
             .push(prover_msg.evaluations.to_vec());
@@ -165,6 +167,7 @@ impl<F: PrimeField> SumCheckVerifier<F> for IOPVerifierState<F> {
                     "Prover message is not consistent with the claim.".to_string(),
                 ));
             }
+            //println!("check success");
         }
         end_timer!(start);
         Ok(SumCheckSubClaim {

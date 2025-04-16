@@ -91,6 +91,7 @@ path = "dTests/deNetwork.rs"
 [features]
 # default = [ "parallel", "print-trace" ]
 default = ["parallel", "rational_sumcheck_piop" ]
+#default = ["rational_sumcheck_piop" ]
 # extensive sanity checks that are useful for debugging
 extensive_sanity_checks = [ ]
 parallel = [ 

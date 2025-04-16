@@ -43,7 +43,7 @@ fn test_random_commitment_evaluation_proof_helper<E: Pairing>() {
 
     // Commit
     let time = Instant::now();
-    let f_comm = DoryCommitment::commit(&f_coeffs, &prover_setup);
+    let f_comm = DoryCommitment::commit(&f_coeffs, &prover_setup, num_vars);
     println!("Commiting time: {:?}", time.elapsed());
 
     // Compute evaluation vector and product
@@ -107,7 +107,7 @@ fn test_evaluation_proof_size_helper<E: Pairing>() {
 
     let mut prover_transcript = IOPTranscript::new(b"Dory Evaluation Proof");
 
-    let f_comm = DoryCommitment::commit(&f_coeffs, &prover_setup);
+    let f_comm = DoryCommitment::commit(&f_coeffs, &prover_setup, num_vars);
 
     let mut b = vec![E::ScalarField::ZERO; coeff_len];
     compute_evaluation_vector(&mut b, &b_point);
